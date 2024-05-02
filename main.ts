@@ -46,7 +46,7 @@ async function main() {
 
 Deno.cron(
   "Check new GITHUB STARS and Save to Omnivore",
-  "0/5 * * * *",
+  "0/10 * * * *",
   async () => {
     await main();
   },
