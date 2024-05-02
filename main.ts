@@ -165,6 +165,8 @@ async function main() {
   const omnivore = getOmnivoreClient();
 
   await saveToOmnivore({ staredEntries: newStarredEntries, omnivore });
+
+  await saveToKV(newEntries);
 }
 
 if (import.meta.main) {
