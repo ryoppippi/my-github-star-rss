@@ -162,6 +162,11 @@ async function main() {
 
   const newStarredEntries = getNewEntries({ newEntries, oldEntries });
 
+  console.log({
+    message: "New starred entries",
+    newStarredEntries,
+  });
+
   const omnivore = getOmnivoreClient();
 
   await saveToOmnivore({ staredEntries: newStarredEntries, omnivore });
