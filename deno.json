@@ -4,6 +4,7 @@
   },
   "imports": {
     "@core/unknownutil": "jsr:@core/unknownutil@^3.18.0",
-    "@omnivore-app/api": "npm:@omnivore-app/api@^1.0.4"
+    "@omnivore-app/api": "npm:@omnivore-app/api@^1.0.4",
+    "consola": "npm:consola@^3.2.3"
   }
 }
