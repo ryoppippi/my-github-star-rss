@@ -9,7 +9,7 @@ const API_URL = _ensureURL(
 
 const KV_NAME = "GITHUB_STARRED" as const;
 
-const OMNIVORE_BASE_URL = URL.parse(
+const OMNIVORE_BASE_URL = _ensureURL(
   Deno.env.get("OMNIVORE_BASE_URL") ??
     "https://api-prod.omnivore.app/api/graphql",
 );
@@ -25,7 +25,8 @@ const isFeedEntry = U.isObjectOf({
 type FeedEntry = U.PredicateType<typeof isFeedEntry>;
 
 function _ensureURL(url: string) {
-  return U.ensure(URL.parse(url), U.isInstanceOf(URL));
+  // return U.ensure(URL.parse(url), U.isInstanceOf(URL));
+  return U.ensure(new URL(url), U.isInstanceOf(URL));
 }
 
 /**
@@ -112,7 +113,6 @@ function guessTags(entry: FeedEntry) {
   const includesWord = (...words: string[]) =>
     words.some((word) => ldesc?.includes(word) || lurl.includes(word));
 
-  const tags: string[] = [];
   const tagMap = [
     { keywords: ["javascript", "typescript", ".js", ".ts"], tag: "javascript" },
     { keywords: ["vim", "nvim", "neovim"], tag: "vim" },
