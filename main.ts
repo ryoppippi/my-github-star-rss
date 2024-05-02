@@ -169,6 +169,10 @@ async function main() {
   await saveToKV(newEntries);
 }
 
-if (import.meta.main) {
-  await main();
-}
+Deno.cron(
+  "Check new GITHUB STARS and Save to Omnivore",
+  "0/15 * * * *",
+  async () => {
+    await main();
+  },
+);
