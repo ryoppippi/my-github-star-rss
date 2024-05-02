@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
+  "imports": {
+    "@core/unknownutil": "jsr:@core/unknownutil@^3.18.0",
+    "@omnivore-app/api": "npm:@omnivore-app/api@^1.0.4"
+  }
+}
